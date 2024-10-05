@@ -4,9 +4,8 @@
 
 /* Global styles */
 body {
-  font-weight: 400;
   margin: 0;
   padding: 0;
-  background-color: #ffff;
-  color: #121212;
+  background-color: #1f1f1f;
+  color: white;
 }
