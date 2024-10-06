@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 function LinkButton({ text, to, primary = false, className = "", ...props }) {
   // Base classes for the link button
   const baseClasses = "px-6 py-3 rounded-lg transition duration-200";
-  const primaryClasses = "bg-[#A57B64] text-white hover:bg-[#BC9F8B]";
+  const primaryClasses = "bg-cocoa-dark text-white hover:bg-cocoa-medium";
 
   // Combine classes based on props
   const linkClasses = `${baseClasses} 

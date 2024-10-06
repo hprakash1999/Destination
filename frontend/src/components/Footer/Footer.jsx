@@ -34,10 +34,10 @@ function Footer() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full px-4">
             {/* Card 1 - Discounts */}
-            <div className="bg-[#2E2E2E] bg-opacity-70 rounded-lg p-6 shadow-lg flex flex-col items-center">
+            <div className="bg-charcoal-light bg-opacity-70 rounded-lg p-6 shadow-lg flex flex-col items-center">
               <FontAwesomeIcon
                 icon={faTags}
-                className="text-[#A57B64] text-3xl mb-2"
+                className="text-cocoa-medium text-3xl mb-2"
               />
 
               <h3 className="text-lg font-bold">Get 20% Off</h3>
@@ -56,10 +56,10 @@ function Footer() {
             </div>
 
             {/* Card 2 - Membership */}
-            <div className="bg-[#2E2E2E] bg-opacity-70 rounded-lg p-6 shadow-lg flex flex-col items-center">
+            <div className="bg-charcoal-light bg-opacity-70 rounded-lg p-6 shadow-lg flex flex-col items-center">
               <FontAwesomeIcon
                 icon={faUserPlus}
-                className="text-[#A57B64] text-3xl mb-2"
+                className="text-cocoa-medium text-3xl mb-2"
               />
 
               <h3 className="text-lg font-bold">Join Our Membership</h3>
@@ -78,10 +78,10 @@ function Footer() {
             </div>
 
             {/* Card 3 - Newsletter */}
-            <div className="bg-[#2E2E2E] bg-opacity-70 rounded-lg p-6 shadow-lg flex flex-col items-center">
+            <div className="bg-charcoal-light bg-opacity-70 rounded-lg p-6 shadow-lg flex flex-col items-center">
               <FontAwesomeIcon
                 icon={faEnvelope}
-                className="text-[#A57B64] text-3xl mb-2"
+                className="text-cocoa-medium text-3xl mb-2"
               />
 
               <h3 className="text-lg font-bold">Subscribe to Our Newsletter</h3>
@@ -104,8 +104,8 @@ function Footer() {
             key={section}
             className={`px-4 py-2 transition duration-300 ${
               activeSection === section
-                ? "font-semibold text-[#A57B64]"
-                : "text-gray-400 hover:text-[#A57B64]"
+                ? "font-semibold text-cocoa-light"
+                : "text-gray-400 hover:text-cocoa-light"
             }`}
             onClick={() => handleSectionChange(section)}
           >
@@ -136,7 +136,7 @@ function Footer() {
               You can reach us at{" "}
               <a
                 href="mailto:info@destination.com"
-                className="font-semibold text-[#A57B64]"
+                className="font-semibold text-cocoa-light"
               >
                 info@destination.com
               </a>{" "}

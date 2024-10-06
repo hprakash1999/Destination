@@ -3,11 +3,11 @@ import { Button, LinkButton } from "../Components.js";
 
 function Header() {
   return (
-    <header className="bg-[#1f1f1f] text-white py-4 px-6 shadow-lg sticky top-0 z-50">
+    <header className="bg-charcoal-light text-white py-4 px-6 shadow-lg sticky top-0 z-50">
       <div className="container mx-auto flex justify-between items-center">
         {/* Logo Section */}
         <div className="text-2xl font-bold">
-          <Link to="/" className="text-[#A57B64] hover:text-[#BC9F8B]">
+          <Link to="/" className="text-cocoa-light">
             YourBrand
           </Link>
         </div>
@@ -16,22 +16,22 @@ function Header() {
         <nav className="space-x-6 text-lg">
           <LinkButton
             to="/"
-            className="hover:text-[#A57B64] transition"
+            className="hover:text-cocoa-light transition"
             text="Home"
           />
           <LinkButton
             to="#"
-            className="hover:text-[#A57B64] transition"
+            className="hover:text-cocoa-light transition"
             text="About"
           />
           <LinkButton
             to="#"
-            className="hover:text-[#A57B64] transition"
+            className="hover:text-cocoa-light transition"
             text="Services"
           />
           <LinkButton
             to="#"
-            className="hover:text-[#A57B64] transition"
+            className="hover:text-cocoa-light transition"
             text="Contact"
           />
         </nav>

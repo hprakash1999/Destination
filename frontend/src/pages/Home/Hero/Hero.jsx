@@ -16,7 +16,11 @@ const Hero = () => {
         </p>
         <div className="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4">
           <LinkButton text="Explore Now" primary to="/explore" />
-          <LinkButton text="Book Your Stay" to="/book" />
+          <LinkButton
+            text="Join Us Today"
+            to="/signup"
+            className="hover:bg-cocoa-dark"
+          />
         </div>
       </div>
     </div>
