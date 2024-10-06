@@ -1,13 +1,7 @@
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 
-const LinkButton = ({
-  text,
-  to,
-  primary = false,
-  className = "",
-  ...props
-}) => {
+function LinkButton({ text, to, primary = false, className = "", ...props }) {
   // Base classes for the link button
   const baseClasses = "px-6 py-3 rounded-lg transition duration-200";
   const primaryClasses = "bg-[#A57B64] text-white hover:bg-[#BC9F8B]";
@@ -21,7 +15,7 @@ const LinkButton = ({
       {text}
     </Link>
   );
-};
+}
 
 export default LinkButton;
 

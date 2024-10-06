@@ -1,12 +1,12 @@
 import PropTypes from "prop-types";
 
-const Button = ({
+function Button({
   text,
   primary = false,
   className = "",
   disabled = false,
   ...props
-}) => {
+}) {
   // Base classes for the button
   const baseClasses = "px-6 py-3 rounded-lg transition duration-200";
   const primaryClasses = "bg-[#A57B64] text-white hover:bg-[#BC9F8B]";
@@ -21,7 +21,7 @@ const Button = ({
       {text}
     </button>
   );
-};
+}
 
 export default Button;
 
