@@ -7,10 +7,15 @@ import {
 
 // Import components
 import { Layout } from "./components/Components.js";
+import { Home } from "./pages/Pages.js";
 
 // Create router
 const router = createBrowserRouter(
-  createRoutesFromElements(<Route path="/" element={<Layout />}></Route>)
+  createRoutesFromElements(
+    <Route path="/" element={<Layout />}>
+      <Route path="" element={<Home />} />
+    </Route>
+  )
 );
 
 // Render router
