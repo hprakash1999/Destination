@@ -5,7 +5,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useState } from "react";
-import { Button } from "../Components.js";
+import { LinkButton } from "../Components.js";
 
 function Footer() {
   const [activeSection, setActiveSection] = useState("about");
@@ -47,7 +47,7 @@ function Footer() {
                 your dream holiday destination with us!
               </p>
 
-              <Button
+              <LinkButton
                 text="Book Now"
                 primary
                 to="/listings"
@@ -69,7 +69,12 @@ function Footer() {
                 discounts, and early access to promotions!
               </p>
 
-              <Button text="Join Now" primary to="/signup" className="w-1/2" />
+              <LinkButton
+                text="Join Now"
+                primary
+                to="/signup"
+                className="w-1/2"
+              />
             </div>
 
             {/* Card 3 - Newsletter */}
@@ -86,7 +91,7 @@ function Footer() {
                 tips right in your inbox!
               </p>
 
-              <Button text="Subscribe" primary to="#" className="w-1/2" />
+              <LinkButton text="Subscribe" primary to="#" className="w-1/2" />
             </div>
           </div>
         </div>

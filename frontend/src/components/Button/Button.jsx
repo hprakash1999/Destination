@@ -1,31 +1,22 @@
-import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
 
 const Button = ({
   text,
   primary = false,
   className = "",
   disabled = false,
-  to,
   ...props
 }) => {
   // Base classes for the button
-  const baseClasses = "w-full px-6 py-3 rounded-lg transition duration-200";
+  const baseClasses = "px-6 py-3 rounded-lg transition duration-200";
   const primaryClasses = "bg-[#A57B64] text-white hover:bg-[#BC9F8B]";
   const disabledClasses = "bg-gray-600 cursor-not-allowed";
 
   // Combine classes based on props
-  const buttonClasses = `${baseClasses} ${primary ? primaryClasses : ""} ${
-    disabled ? disabledClasses : ""
-  } ${className}`;
+  const buttonClasses = `${baseClasses} ${primary ? primaryClasses : ""} 
+  ${disabled ? disabledClasses : ""} ${className}`;
 
-  // Render button or link
-  return to ? (
-    <Link to={to} className="w-full">
-      <button className={buttonClasses} disabled={disabled} {...props}>
-        {text}
-      </button>
-    </Link>
-  ) : (
+  return (
     <button className={buttonClasses} disabled={disabled} {...props}>
       {text}
     </button>
@@ -33,3 +24,11 @@ const Button = ({
 };
 
 export default Button;
+
+// Define prop types for validations
+Button.propTypes = {
+  text: PropTypes.string.isRequired,
+  primary: PropTypes.bool,
+  className: PropTypes.string,
+  disabled: PropTypes.bool,
+};
