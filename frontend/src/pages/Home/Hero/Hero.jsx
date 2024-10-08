@@ -10,12 +10,15 @@ const Hero = () => {
         <h1 className="text-4xl font-bold mb-4">
           Start Your Next Adventure with Us
         </h1>
+
         <p className="mb-6 max-w-2xl">
           Escape the everyday hustle and enjoy a stay in our comfortable
           accommodations, designed to help you relax and recharge.
         </p>
+
         <div className="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4">
           <LinkButton text="Explore Now" primary to="/explore" />
+
           <LinkButton
             text="Join Us Today"
             to="/signup"

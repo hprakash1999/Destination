@@ -8,7 +8,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-const Facilities = () => {
+function Facilities() {
   const facilities = [
     {
       icon: faWifi,
@@ -48,6 +48,7 @@ const Facilities = () => {
         <h2 className="text-4xl font-bold mb-4 text-cocoa-medium">
           Our Exceptional Facilities
         </h2>
+
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 border-2 p-5 border-cocoa-light">
           {facilities.map((facility, index) => (
             <div
@@ -57,9 +58,11 @@ const Facilities = () => {
               <div className="text-4xl text-cocoa-light mb-4">
                 <FontAwesomeIcon icon={facility.icon} />
               </div>
+
               <h3 className="text-xl font-semibold mb-2 text-white">
                 {facility.title}
               </h3>
+
               <p className="text-gray-300">{facility.description}</p>
             </div>
           ))}
@@ -67,6 +70,6 @@ const Facilities = () => {
       </div>
     </div>
   );
-};
+}
 
 export default Facilities;

@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useState } from "react";
 
-const Carousel = () => {
+function Carousel() {
   // Slides with customer's image
   const slides = [
     { url: "assets/customer-1.jpg", title: "Customer 1" },
@@ -47,6 +47,7 @@ const Carousel = () => {
           />
         </div>
       ))}
+
       {/* Error message */}
       {error && (
         <p className="absolute text-white bottom-4 left-1/2 transform -translate-x-1/2">
@@ -55,6 +56,6 @@ const Carousel = () => {
       )}
     </div>
   );
-};
+}
 
 export default Carousel;
