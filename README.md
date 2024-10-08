@@ -1,4 +1,4 @@
-# 🌍 Destination (Holiday Accommodation Hub)
+# Destination (Holiday Accommodation Hub)
 
 **Destination** is your go-to platform for discovering and booking the perfect holiday accommodation, wherever your wanderlust takes you. With a clean, intuitive design and powerful search capabilities, Destination makes it effortless to browse a vast array of global destinations. Whether you're planning a peaceful retreat in the countryside or a vibrant city escape, the platform offers personalized recommendations to suit every traveler’s taste.
 
@@ -6,18 +6,18 @@ Designed with a focus on user experience, Destination simplifies the booking pro
 
 With **Destination**, your dream getaway is just a few clicks away, making travel planning as exciting and stress-free as the journey itself.
 
-## ✨ Features
+## Features
 
 - **User-friendly UI:** A sleek, minimalist design that’s easy on the eyes and focused on delivering the best user experience.
 - **Explore Destinations:** Discover top holiday spots around the globe, complete with personalized recommendations.
 - **Responsive Layout:** Enjoy a seamless experience whether you're on mobile, tablet, or desktop.
 
-## 🚀 Tech Stack
+## Tech Stack
 
 - **Frontend**: React, Redux Toolkit, Tailwind CSS, Vite
 - **Backend**: Node.js, Express.js, MongoDB
 
-## 🔧 Dependencies
+## Dependencies
 
 ### Frontend
 
@@ -29,6 +29,7 @@ With **Destination**, your dream getaway is just a few clicks away, making trave
 - **React Redux:** For state management.
 - **Redux Toolkit:** Simplifying state management.
 - **React Router DOM:** For navigation.
+- **Prop-Types:** For props validation.
 
 ### Backend
 
@@ -43,11 +44,11 @@ With **Destination**, your dream getaway is just a few clicks away, making trave
 - **Multer:** For file uploads.
 - **UUID:** To generate unique IDs.
 
-## 🤝 Contributing
+## Contributing
 
 Contributions are always welcome! Whether you have a feature suggestion, found a bug, or want to improve documentation, feel free to submit a pull request. For major changes, please open an issue to discuss what you’d like to improve.
 
-## 👤 About the Project Owner
+## About the Project Owner
 
 This project belongs to **Mr. Harsh Prakash**, a dedicated Full Stack Developer with a strong passion for building impactful web applications. He bridges the gap between user needs and technical solutions, ensuring that every project aligns with business goals while offering an outstanding user experience.
 
