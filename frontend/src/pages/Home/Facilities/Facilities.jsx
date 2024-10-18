@@ -43,7 +43,7 @@ function Facilities() {
   ];
 
   return (
-    <div className="py-16">
+    <div className="py-10 px-6">
       <div className="container mx-auto text-center">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 p-5">
           {facilities.map((facility, index) => (
