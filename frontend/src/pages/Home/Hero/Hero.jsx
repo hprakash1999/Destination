@@ -7,11 +7,11 @@ const Hero = () => {
 
       {/* Text section */}
       <div className="absolute inset-0 flex flex-col justify-center items-center text-center text-white bg-black bg-opacity-50 p-6">
-        <h1 className="text-4xl font-bold mb-4">
+        <h1 className="text-4xl md:text-5xl font-bold mb-4">
           Start Your Next Adventure with Us
         </h1>
 
-        <p className="mb-6 max-w-2xl">
+        <p className="mb-6 max-w-2xl text-lg md:text-xl">
           Escape the everyday hustle and enjoy a stay in our comfortable
           accommodations, designed to help you relax and recharge.
         </p>
@@ -22,7 +22,7 @@ const Hero = () => {
           <LinkButton
             text="Join Us Today"
             to="/signup"
-            className="hover:bg-cocoa-dark"
+            className="bg-gray-700 hover:bg-gray-600"
           />
         </div>
       </div>

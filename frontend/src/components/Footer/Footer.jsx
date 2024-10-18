@@ -16,7 +16,7 @@ function Footer() {
   };
 
   return (
-    <footer className="text-gray-200">
+    <footer className=" text-gray-200 p-3">
       {/* Banner section */}
       <div className="relative h-64 md:h-80 overflow-hidden">
         {/* Background image */}
@@ -34,10 +34,10 @@ function Footer() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full px-4">
             {/* Card 1 - Discounts */}
-            <div className="bg-charcoal-light bg-opacity-70 rounded-lg p-6 shadow-lg flex flex-col items-center">
+            <div className="bg-zinc-800 bg-opacity-70 rounded-lg p-6 shadow-lg flex flex-col items-center">
               <FontAwesomeIcon
                 icon={faTags}
-                className="text-cocoa-medium text-3xl mb-2"
+                className="text-rose-500 text-3xl mb-2"
               />
 
               <h3 className="text-lg font-bold">Get 20% Off</h3>
@@ -56,10 +56,10 @@ function Footer() {
             </div>
 
             {/* Card 2 - Membership */}
-            <div className="bg-charcoal-light bg-opacity-70 rounded-lg p-6 shadow-lg flex flex-col items-center">
+            <div className="bg-zinc-800 bg-opacity-70 rounded-lg p-6 shadow-lg flex flex-col items-center">
               <FontAwesomeIcon
                 icon={faUserPlus}
-                className="text-cocoa-medium text-3xl mb-2"
+                className="text-rose-500 text-3xl mb-2"
               />
 
               <h3 className="text-lg font-bold">Join Our Membership</h3>
@@ -78,10 +78,10 @@ function Footer() {
             </div>
 
             {/* Card 3 - Newsletter */}
-            <div className="bg-charcoal-light bg-opacity-70 rounded-lg p-6 shadow-lg flex flex-col items-center">
+            <div className="bg-zinc-800 bg-opacity-70 rounded-lg p-6 shadow-lg flex flex-col items-center">
               <FontAwesomeIcon
                 icon={faEnvelope}
-                className="text-cocoa-medium text-3xl mb-2"
+                className="text-rose-500 text-3xl mb-2"
               />
 
               <h3 className="text-lg font-bold">Subscribe to Our Newsletter</h3>
@@ -104,8 +104,8 @@ function Footer() {
             key={section}
             className={`px-4 py-2 transition duration-300 ${
               activeSection === section
-                ? "font-semibold text-cocoa-light"
-                : "text-gray-400 hover:text-cocoa-light"
+                ? "font-semibold text-rose-500"
+                : "text-gray-400 hover:text-rose-500"
             }`}
             onClick={() => handleSectionChange(section)}
           >
@@ -120,7 +120,6 @@ function Footer() {
         {activeSection === "about" && (
           <div>
             <h2 className="text-xl font-medium">About Us</h2>
-
             <p className="mt-2">
               Destination is your ideal platform for finding holiday
               accommodations...
@@ -131,12 +130,11 @@ function Footer() {
         {activeSection === "contact" && (
           <div>
             <h2 className="text-xl font-medium">Contact Us</h2>
-
             <p className="mt-2">
               You can reach us at{" "}
               <a
                 href="mailto:info@destination.com"
-                className="font-semibold text-cocoa-light"
+                className="font-semibold text-rose-500"
               >
                 info@destination.com
               </a>{" "}
@@ -148,7 +146,6 @@ function Footer() {
         {activeSection === "privacy" && (
           <div>
             <h2 className="text-xl font-medium">Privacy Policy</h2>
-
             <p className="mt-2">
               We value your privacy and are committed to protecting your
               personal information...
@@ -159,7 +156,6 @@ function Footer() {
         {activeSection === "terms" && (
           <div>
             <h2 className="text-xl font-medium">Terms of Service</h2>
-
             <p className="mt-2">
               By using our services, you agree to our terms and conditions...
             </p>

@@ -43,19 +43,15 @@ function Facilities() {
   ];
 
   return (
-    <div className="py-16 bg-[#1f1f1f]">
+    <div className="py-16">
       <div className="container mx-auto text-center">
-        <h2 className="text-4xl font-bold mb-4 text-cocoa-medium">
-          Our Exceptional Facilities
-        </h2>
-
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 border-2 p-5 border-cocoa-light">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 p-5">
           {facilities.map((facility, index) => (
             <div
               key={index}
-              className="bg-charcoal-light p-6 rounded-lg shadow-lg transition-transform duration-200 hover:scale-105"
+              className="bg-zinc-800 p-6 rounded-lg shadow-lg transition-transform duration-200 hover:scale-105"
             >
-              <div className="text-4xl text-cocoa-light mb-4">
+              <div className="text-4xl text-rose-500 mb-4">
                 <FontAwesomeIcon icon={facility.icon} />
               </div>
 
@@ -63,7 +59,7 @@ function Facilities() {
                 {facility.title}
               </h3>
 
-              <p className="text-gray-300">{facility.description}</p>
+              <p className="text-gray-400">{facility.description}</p>
             </div>
           ))}
         </div>

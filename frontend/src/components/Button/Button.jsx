@@ -9,7 +9,8 @@ function Button({
 }) {
   // Base classes for the button
   const baseClasses = "px-6 py-3 rounded-lg transition duration-200";
-  const primaryClasses = " bg-cocoa-dark text-white hover:bg-cocoa-medium";
+  const primaryClasses =
+    "bg-gradient-to-r from-rose-500 to-pink-600 text-white hover:from-rose-600 hover:to-pink-700";
   const disabledClasses = "bg-gray-600 cursor-not-allowed";
 
   // Combine classes based on props

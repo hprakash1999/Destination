@@ -50,7 +50,7 @@ function Carousel() {
 
       {/* Error message */}
       {error && (
-        <p className="absolute text-white bottom-4 left-1/2 transform -translate-x-1/2">
+        <p className="absolute text-red-500 bottom-4 left-1/2 transform -translate-x-1/2 bg-zinc-800 p-2 rounded">
           Image failed to load
         </p>
       )}
