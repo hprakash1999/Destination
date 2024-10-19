@@ -21,11 +21,7 @@ const Hero = () => {
         <div className="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4">
           <LinkButton text="Explore Now" primary to="/explore" />
 
-          <LinkButton
-            text="Join Us Today"
-            to="/register"
-            className="bg-gray-600 hover:bg-gray-700"
-          />
+          <LinkButton text="Join Us Today" to="/register" secondary />
         </div>
       </div>
     </div>
