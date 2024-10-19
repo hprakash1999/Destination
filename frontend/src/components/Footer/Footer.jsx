@@ -48,9 +48,9 @@ function Footer() {
               </p>
 
               <LinkButton
-                text="Book Now"
+                text="Explore Now"
                 primary
-                to="/listings"
+                to="/explore"
                 className="w-1/2"
               />
             </div>
@@ -72,7 +72,7 @@ function Footer() {
               <LinkButton
                 text="Join Now"
                 primary
-                to="/signup"
+                to="/register"
                 className="w-1/2"
               />
             </div>

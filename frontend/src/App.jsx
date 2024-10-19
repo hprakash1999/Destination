@@ -7,13 +7,14 @@ import {
 
 // Import components
 import { Layout } from "./components/Components.js";
-import { Home } from "./pages/Pages.js";
+import { Explore, Home } from "./pages/Pages.js";
 
 // Create router
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<Layout />}>
       <Route path="" element={<Home />} />
+      <Route path="/explore" element={<Explore />} />
     </Route>
   )
 );

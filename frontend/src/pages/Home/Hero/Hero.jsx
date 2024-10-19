@@ -21,8 +21,8 @@ const Hero = () => {
 
           <LinkButton
             text="Join Us Today"
-            to="/signup"
-            className="bg-gray-700 hover:bg-gray-600"
+            to="/register"
+            className="bg-gray-600 hover:bg-gray-700"
           />
         </div>
       </div>

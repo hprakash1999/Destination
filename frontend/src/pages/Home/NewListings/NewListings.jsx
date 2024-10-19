@@ -1,6 +1,10 @@
 import { useEffect, useState } from "react";
 import { fetchListings } from "../../../api/api";
-import { ListingCard, Loading } from "../../../components/Components";
+import {
+  LinkButton,
+  ListingCard,
+  Loading,
+} from "../../../components/Components";
 
 function NewListings() {
   const [newListings, setNewListings] = useState([]);
@@ -13,7 +17,7 @@ function NewListings() {
       try {
         const listings = await fetchListings({ limit: 6 });
         setNewListings(listings);
-        setStatus("succeeded");
+        setStatus("success");
       } catch (err) {
         setError(err.message);
         setStatus("failed");
@@ -68,6 +72,15 @@ function NewListings() {
             No listings available. Please check back later!
           </p>
         )}
+      </div>
+
+      <div className="flex justify-center mt-10">
+        <LinkButton
+          primary
+          text={"See More"}
+          to="/explore"
+          className="w-1/5 text-center"
+        />
       </div>
     </section>
   );
