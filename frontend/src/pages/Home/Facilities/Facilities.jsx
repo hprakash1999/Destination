@@ -9,6 +9,7 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 function Facilities() {
+  // Facilities array - static data
   const facilities = [
     {
       icon: faWifi,

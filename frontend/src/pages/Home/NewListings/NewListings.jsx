@@ -11,6 +11,7 @@ function NewListings() {
   const [status, setStatus] = useState("idle");
   const [error, setError] = useState(null);
 
+  // Fetch new listings using axios API
   useEffect(() => {
     const fetchData = async () => {
       setStatus("loading");
@@ -27,6 +28,7 @@ function NewListings() {
     fetchData();
   }, []);
 
+  // Conditional rendering based on status
   if (status === "loading") return <Loading />;
   if (status === "failed")
     return <p className="text-rose-500 text-center">Error: {error}</p>;
@@ -37,11 +39,13 @@ function NewListings() {
         <h2 className="text-4xl font-semibold text-white mb-2">
           Discover Your Next Adventure
         </h2>
+
         <p className="text-lg text-gray-400">
           Fresh destinations just for you!
         </p>
       </div>
 
+      {/* Show listings in listing card  */}
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
         {newListings.length > 0 ? (
           newListings.map(
@@ -62,7 +66,7 @@ function NewListings() {
                 imageURL={listingImage}
                 availability={availability}
                 price={pricePerNight}
-                detailsLink={`/listings/${_id}`}
+                detailsLink={`/explore/${_id}`}
                 className="transition-transform transform hover:scale-105 duration-200"
               />
             )

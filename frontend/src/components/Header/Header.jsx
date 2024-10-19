@@ -2,6 +2,8 @@ import { Link } from "react-router-dom";
 import { Button, LinkButton } from "../Components.js";
 
 function Header() {
+  // TODO: Fix this Header component
+
   return (
     <header className="bg-charcoal-light text-white py-4 px-6 shadow-lg sticky top-0 z-50">
       <div className="container mx-auto flex justify-between items-center">

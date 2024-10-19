@@ -27,7 +27,9 @@ function ListingCard({
             {title}
           </h3>
         </Link>
+
         <p className="text-xs text-gray-300 mb-2">{`${location}, ${country}`}</p>
+
         <p
           className={`text-sm font-semibold mb-4 ${
             availability ? "text-white" : "text-red-500"
@@ -40,6 +42,7 @@ function ListingCard({
   );
 }
 
+// Define prop types for validations
 ListingCard.propTypes = {
   title: PropTypes.string.isRequired,
   country: PropTypes.string.isRequired,

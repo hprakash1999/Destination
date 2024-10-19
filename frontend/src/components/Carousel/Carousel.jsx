@@ -20,11 +20,13 @@ function Carousel() {
     setCurrentSlide((prev) => (prev + 1) % slides.length);
   }, [slides.length]);
 
+  // Change slides every "slideInterval" seconds
   useEffect(() => {
     const interval = setInterval(nextSlide, slideInterval);
     return () => clearInterval(interval);
   }, [nextSlide, slideInterval]);
 
+  // Handle image error
   const handleImageError = () => {
     setError(true);
   };

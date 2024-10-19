@@ -3,6 +3,7 @@ import { Carousel, LinkButton } from "../../../components/Components";
 const Hero = () => {
   return (
     <div className="relative h-96 overflow-hidden">
+      {/* Carousel banner section */}
       <Carousel />
 
       {/* Text section */}
@@ -16,6 +17,7 @@ const Hero = () => {
           accommodations, designed to help you relax and recharge.
         </p>
 
+        {/* Link Buttons */}
         <div className="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4">
           <LinkButton text="Explore Now" primary to="/explore" />
 
