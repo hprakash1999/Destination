@@ -14,8 +14,14 @@ export const fetchListings = async (params = {}) => {
     const response = await api.get("/listings", {
       params: { ...params },
     });
+
     console.log("Listings fetched:", response.data);
-    return response.data.data.listings;
+
+    return {
+      listings: response.data.data.listings,
+      totalListings: response.data.data.totalListings,
+      totalPages: response.data.data.totalPages,
+    };
   } catch (err) {
     console.error("Failed to fetch listings:", err);
     throw err;

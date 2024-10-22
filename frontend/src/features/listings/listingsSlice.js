@@ -7,9 +7,10 @@ const listingsSlice = createSlice({
     listings: [],
     status: "idle",
     error: null,
+    totalListings: 0,
+    totalPages: 0,
   },
 
-  // Reducers to fetch all listings
   extraReducers: (builder) => {
     builder
       .addCase(getAllListings.pending, (state) => {
@@ -18,7 +19,9 @@ const listingsSlice = createSlice({
       })
       .addCase(getAllListings.fulfilled, (state, action) => {
         state.status = "success";
-        state.listings = action.payload;
+        state.listings = action.payload.listings;
+        state.totalListings = action.payload.totalListings;
+        state.totalPages = action.payload.totalPages;
       })
       .addCase(getAllListings.rejected, (state, action) => {
         state.status = "failed";

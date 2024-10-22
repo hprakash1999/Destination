@@ -56,5 +56,5 @@ Harsh's expertise lies in leveraging modern technologies to craft innovative sol
 
 Connect with Harsh:
 
-- **GitHub:** https://github.com/workwithharsh
-- **LinkedIn:** https://www.linkedin.com/in/workwitharsh/
+- **GitHub:** [workwithharsh](https://github.com/workwithharsh)
+- **LinkedIn:** [workwitharsh](https://www.linkedin.com/in/workwitharsh/)

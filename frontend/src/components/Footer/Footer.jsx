@@ -1,3 +1,6 @@
+// TODO: Replace advertisment cards with dynamic cards
+// TODO: Replace footer's dummy content with actual links
+
 import {
   faEnvelope,
   faTags,
@@ -14,9 +17,6 @@ function Footer() {
   const handleSectionChange = (section) => {
     setActiveSection(section);
   };
-
-  // TODO: Replace advertisment cards with dynamic cards
-  // TODO: Replace footer dummy content with actual links
 
   return (
     <footer className=" text-gray-200 p-3">

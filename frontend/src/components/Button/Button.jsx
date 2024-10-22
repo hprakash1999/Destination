@@ -36,7 +36,7 @@ export default Button;
 
 // Define prop types for validations
 Button.propTypes = {
-  text: PropTypes.string.isRequired,
+  text: PropTypes.node.isRequired,
   primary: PropTypes.bool,
   secondary: PropTypes.bool,
   className: PropTypes.string,
