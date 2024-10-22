@@ -172,7 +172,12 @@ function FilterBar({ tempFilters, setTempFilters, applyFilters }) {
         </div>
 
         {/* Search Button */}
-        <Button text="Search" primary onClick={applyFilters} />
+        <Button
+          text="Apply"
+          primary
+          onClick={applyFilters}
+          className="w-full"
+        />
       </div>
     </div>
   );

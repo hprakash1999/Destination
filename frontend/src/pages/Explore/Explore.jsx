@@ -70,7 +70,7 @@ function Explore() {
 
       <div className="flex gap-6">
         {/* Sidebar FilterBar */}
-        <div className="w-1/4">
+        <div className="w-1/5">
           <FilterBar
             tempFilters={tempFilters}
             setTempFilters={setTempFilters}
@@ -79,7 +79,7 @@ function Explore() {
         </div>
 
         {/* Listings Cards */}
-        <div className="w-3/4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+        <div className="w-4/5 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
           {listings && listings.length > 0 ? (
             listings.map(
               ({
