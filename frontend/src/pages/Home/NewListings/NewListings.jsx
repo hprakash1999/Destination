@@ -16,7 +16,8 @@ function NewListings() {
     const fetchData = async () => {
       setStatus("loading");
       try {
-        const listings = await fetchListings({ limit: 6 });
+        const { listings } = await fetchListings({ limit: 6 });
+
         setNewListings(listings);
         setStatus("success");
       } catch (err) {
