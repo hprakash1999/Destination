@@ -20,7 +20,7 @@ import reviewRouter from "./routes/review.route.js";
 import userRouter from "./routes/user.route.js";
 
 // Routes declaration
-app.use("/api/v1/users", userRouter);
+app.use("/api/v1/user", userRouter);
 app.use("/api/v1/listings", listingRouter);
 app.use("/api/v1/reviews", reviewRouter);
 

@@ -91,7 +91,7 @@ function Footer() {
 
               <p className="text-sm mb-4">
                 Stay updated with our latest offers, exclusive deals, and travel
-                tips right in your inbox!
+                tips right in your inbox! Stay tuned with us.
               </p>
 
               <LinkButton text="Subscribe" primary to="#" className="w-1/2" />
