@@ -1,6 +1,6 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Button, InputBox } from "../../components/Components.js";
+import { Button, InputBox, TextareaBox } from "../../components/Components.js";
 import { registerUser } from "../../features/features.js";
 
 const RegisterForm = () => {
@@ -17,6 +17,8 @@ const RegisterForm = () => {
     avatar: null,
   });
 
+  const [isFormValid, setIsFormValid] = useState(false);
+
   // Form change handler
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -32,6 +34,30 @@ const RegisterForm = () => {
       avatar: e.target.files[0],
     }));
   };
+
+  // Validate form fields
+  const validateForm = () => {
+    const { fullname, username, email, bio, password, avatar } = formData;
+    const usernameRegex = /^[a-zA-Z0-9_]+$/;
+    const bioWordCount = bio
+      .split(" ")
+      .filter((word) => word.length > 0).length;
+
+    // Check all validations
+    return (
+      fullname.trim() &&
+      usernameRegex.test(username) &&
+      email.trim() &&
+      (bioWordCount <= 50 || bio === "") && // Bio not required
+      password.length >= 8 &&
+      avatar
+    );
+  };
+
+  // Effect to check form validity
+  useEffect(() => {
+    setIsFormValid(validateForm());
+  }, [formData]);
 
   // Form submit handler
   const handleSubmit = async (e) => {
@@ -57,7 +83,10 @@ const RegisterForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="w-full max-w-lg space-y-6">
+    <form
+      onSubmit={handleSubmit}
+      className="w-full max-w-lg space-y-6 bg-zinc-800 p-8 rounded-lg shadow-lg"
+    >
       {error && <p className="text-red-500">{error}</p>}
 
       <InputBox
@@ -90,9 +119,8 @@ const RegisterForm = () => {
         required
       />
 
-      <InputBox
+      <TextareaBox
         label="Bio"
-        type="text"
         name="bio"
         value={formData.bio}
         onChange={handleChange}
@@ -101,28 +129,44 @@ const RegisterForm = () => {
 
       <div className="space-y-4">
         <label className="block text-zinc-200 text-sm font-medium">Role:</label>
+
         <div className="flex space-x-6">
-          <label className="text-zinc-200 flex items-center space-x-2">
+          <label className="flex items-center cursor-pointer">
             <input
               type="radio"
               name="role"
               value="guest"
               checked={formData.role === "guest"}
               onChange={handleChange}
-              className="form-radio"
+              className="hidden"
             />
-            <span>Guest</span>
+
+            <span className="w-4 h-4 rounded-full border-2 border-zinc-600 flex items-center justify-center">
+              {formData.role === "guest" && (
+                <span className="w-2 h-2 bg-rose-500 rounded-full"></span>
+              )}
+            </span>
+
+            <span className="ml-2 text-zinc-200">Guest</span>
           </label>
-          <label className="text-zinc-200 flex items-center space-x-2">
+
+          <label className="flex items-center cursor-pointer">
             <input
               type="radio"
               name="role"
               value="host"
               checked={formData.role === "host"}
               onChange={handleChange}
-              className="form-radio"
+              className="hidden"
             />
-            <span>Host</span>
+
+            <span className="w-4 h-4 rounded-full border-2 border-zinc-600 flex items-center justify-center">
+              {formData.role === "host" && (
+                <span className="w-2 h-2 bg-rose-500 rounded-full"></span>
+              )}
+            </span>
+
+            <span className="ml-2 text-zinc-200">Host</span>
           </label>
         </div>
       </div>
@@ -154,7 +198,7 @@ const RegisterForm = () => {
       <Button
         text={status === "loading" ? "Registering..." : "Register"}
         primary
-        disabled={status === "loading"}
+        disabled={status === "loading" || !isFormValid}
         className="w-full py-3"
       />
     </form>
