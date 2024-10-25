@@ -5,7 +5,7 @@ function LinkButton({
   text,
   to,
   primary = false,
-  secondary = false, // Secondary button
+  secondary = false,
   className = "",
   ...props
 }) {
