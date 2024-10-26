@@ -8,11 +8,16 @@ function ErrorPage() {
       <h2 className="text-4xl mb-6">404 - Page Not Found</h2>
 
       <p className="text-lg mb-8">
-        We couldn’t find the page you’re looking for. Please check the link or
-        return to explore our listings.
+        We couldn’t find the page you’re looking for.
+        <br />
+        Please check the link or return to explore our listings.
       </p>
 
-      <LinkButton to="/explore" primary text="Go Back" />
+      <LinkButton
+        to="/explore"
+        text="Go Back & Explore"
+        className="text-rose-500 font-semibold ml-1 hover:underline"
+      />
     </div>
   );
 }
