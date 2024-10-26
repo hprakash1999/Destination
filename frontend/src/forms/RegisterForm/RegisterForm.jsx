@@ -1,13 +1,9 @@
 import { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { registerNewUser } from "../../api/api.js";
 import { Button, InputBox, TextareaBox } from "../../components/Components.js";
-import { registerUser } from "../../features/features.js";
 import useFormValidation from "../../hooks/useFormValidation";
 
 const RegisterForm = () => {
-  const dispatch = useDispatch();
-  const { status, error } = useSelector((state) => state.auth);
-
   const [formData, setFormData] = useState({
     fullname: "",
     username: "",
@@ -29,7 +25,7 @@ const RegisterForm = () => {
 
   const { isFormValid, errors } = useFormValidation(formData, touched);
 
-  // Form change handler
+  // Form field change handler
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prevData) => ({
@@ -49,15 +45,16 @@ const RegisterForm = () => {
     setTouched((prev) => ({ ...prev, [field]: true }));
   };
 
-  // Form submit handler
+  // Form submission handler
   const handleSubmit = async (e) => {
     e.preventDefault();
     const { avatar, ...dataToSend } = formData;
     const registerData = { ...dataToSend, avatar };
 
     try {
-      await dispatch(registerUser(registerData)).unwrap();
-      // Reset the form after successful registration
+      await registerNewUser(registerData);
+
+      // Reset form fields after submission
       setFormData({
         fullname: "",
         username: "",
@@ -67,6 +64,7 @@ const RegisterForm = () => {
         password: "",
         avatar: null,
       });
+
       setTouched({
         fullname: false,
         username: false,
@@ -85,7 +83,7 @@ const RegisterForm = () => {
       onSubmit={handleSubmit}
       className="w-full max-w-lg space-y-6 bg-zinc-800 p-8 rounded-lg shadow-lg"
     >
-      {error && <p className="text-red-500">{error}</p>}
+      {errors.global && <p className="text-red-500">{errors.global}</p>}
 
       <InputBox
         label="Full Name"
@@ -93,7 +91,7 @@ const RegisterForm = () => {
         name="fullname"
         value={formData.fullname}
         onChange={handleChange}
-        onBlur={() => handleBlur("fullname")} // Track when the field is touched
+        onBlur={() => handleBlur("fullname")}
         placeholder="Enter full name"
         required
       />
@@ -174,9 +172,9 @@ const RegisterForm = () => {
       </div>
 
       <Button
-        text={status === "loading" ? "Registering..." : "Register"}
+        text={"Register"}
         primary
-        disabled={status === "loading" || !isFormValid}
+        disabled={!isFormValid}
         className="w-full py-3"
       />
     </form>
