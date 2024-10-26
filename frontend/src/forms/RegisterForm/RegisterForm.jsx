@@ -1,7 +1,8 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Button, InputBox, TextareaBox } from "../../components/Components.js";
 import { registerUser } from "../../features/features.js";
+import useFormValidation from "../../hooks/useFormValidation";
 
 const RegisterForm = () => {
   const dispatch = useDispatch();
@@ -17,7 +18,16 @@ const RegisterForm = () => {
     avatar: null,
   });
 
-  const [isFormValid, setIsFormValid] = useState(false);
+  const [touched, setTouched] = useState({
+    fullname: false,
+    username: false,
+    email: false,
+    bio: false,
+    password: false,
+    avatar: false,
+  });
+
+  const { isFormValid, errors } = useFormValidation(formData, touched);
 
   // Form change handler
   const handleChange = (e) => {
@@ -35,29 +45,9 @@ const RegisterForm = () => {
     }));
   };
 
-  // Validate form fields
-  const validateForm = () => {
-    const { fullname, username, email, bio, password, avatar } = formData;
-    const usernameRegex = /^[a-zA-Z0-9_]+$/;
-    const bioWordCount = bio
-      .split(" ")
-      .filter((word) => word.length > 0).length;
-
-    // Check all validations
-    return (
-      fullname.trim() &&
-      usernameRegex.test(username) &&
-      email.trim() &&
-      (bioWordCount <= 50 || bio === "") && // Bio not required
-      password.length >= 8 &&
-      avatar
-    );
+  const handleBlur = (field) => {
+    setTouched((prev) => ({ ...prev, [field]: true }));
   };
-
-  // Effect to check form validity
-  useEffect(() => {
-    setIsFormValid(validateForm());
-  }, [formData]);
 
   // Form submit handler
   const handleSubmit = async (e) => {
@@ -77,6 +67,14 @@ const RegisterForm = () => {
         password: "",
         avatar: null,
       });
+      setTouched({
+        fullname: false,
+        username: false,
+        email: false,
+        bio: false,
+        password: false,
+        avatar: false,
+      });
     } catch (err) {
       console.error("Registration failed:", err);
     }
@@ -95,9 +93,13 @@ const RegisterForm = () => {
         name="fullname"
         value={formData.fullname}
         onChange={handleChange}
+        onBlur={() => handleBlur("fullname")} // Track when the field is touched
         placeholder="Enter full name"
         required
       />
+      {errors.fullname && touched.fullname && (
+        <p className="text-red-500">{errors.fullname}</p>
+      )}
 
       <InputBox
         label="Username"
@@ -105,9 +107,13 @@ const RegisterForm = () => {
         name="username"
         value={formData.username}
         onChange={handleChange}
+        onBlur={() => handleBlur("username")}
         placeholder="Enter username"
         required
       />
+      {errors.username && touched.username && (
+        <p className="text-red-500">{errors.username}</p>
+      )}
 
       <InputBox
         label="Email"
@@ -115,61 +121,25 @@ const RegisterForm = () => {
         name="email"
         value={formData.email}
         onChange={handleChange}
+        onBlur={() => handleBlur("email")}
         placeholder="Enter email"
         required
       />
+      {errors.email && touched.email && (
+        <p className="text-red-500">{errors.email}</p>
+      )}
 
       <TextareaBox
         label="Bio"
         name="bio"
         value={formData.bio}
         onChange={handleChange}
+        onBlur={() => handleBlur("bio")}
         placeholder="Tell us something about yourself"
       />
-
-      <div className="space-y-4">
-        <label className="block text-zinc-200 text-sm font-medium">Role:</label>
-
-        <div className="flex space-x-6">
-          <label className="flex items-center cursor-pointer">
-            <input
-              type="radio"
-              name="role"
-              value="guest"
-              checked={formData.role === "guest"}
-              onChange={handleChange}
-              className="hidden"
-            />
-
-            <span className="w-4 h-4 rounded-full border-2 border-zinc-600 flex items-center justify-center">
-              {formData.role === "guest" && (
-                <span className="w-2 h-2 bg-rose-500 rounded-full"></span>
-              )}
-            </span>
-
-            <span className="ml-2 text-zinc-200">Guest</span>
-          </label>
-
-          <label className="flex items-center cursor-pointer">
-            <input
-              type="radio"
-              name="role"
-              value="host"
-              checked={formData.role === "host"}
-              onChange={handleChange}
-              className="hidden"
-            />
-
-            <span className="w-4 h-4 rounded-full border-2 border-zinc-600 flex items-center justify-center">
-              {formData.role === "host" && (
-                <span className="w-2 h-2 bg-rose-500 rounded-full"></span>
-              )}
-            </span>
-
-            <span className="ml-2 text-zinc-200">Host</span>
-          </label>
-        </div>
-      </div>
+      {errors.bio && touched.bio && (
+        <p className="text-red-500">{errors.bio}</p>
+      )}
 
       <InputBox
         label="Password"
@@ -177,9 +147,13 @@ const RegisterForm = () => {
         name="password"
         value={formData.password}
         onChange={handleChange}
+        onBlur={() => handleBlur("password")}
         placeholder="Create password"
         required
       />
+      {errors.password && touched.password && (
+        <p className="text-red-500">{errors.password}</p>
+      )}
 
       <div>
         <label className="block text-zinc-200 text-sm font-medium mb-2">
@@ -189,10 +163,14 @@ const RegisterForm = () => {
           type="file"
           name="avatar"
           onChange={handleFileChange}
+          onBlur={() => handleBlur("avatar")}
           accept="image/*"
           required
           className="block w-full text-zinc-100 bg-zinc-800 border border-zinc-600 rounded-md focus:outline-none focus:ring-2 focus:ring-rose-500"
         />
+        {errors.avatar && touched.avatar && (
+          <p className="text-red-500">{errors.avatar}</p>
+        )}
       </div>
 
       <Button
