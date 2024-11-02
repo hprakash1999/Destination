@@ -1,7 +1,7 @@
 import { LinkButton } from "../../components/Components.js";
 import { RegisterForm } from "../../forms/Forms.js";
 
-const Register = () => {
+function Register() {
   return (
     <div className="min-h-screen flex flex-col items-center justify-center p-6">
       <div className="text-center mb-8">
@@ -18,7 +18,7 @@ const Register = () => {
 
       <div className="mt-4">
         <p className="text-zinc-300">
-          Already registered?
+          Already with us?
           <LinkButton
             text="Login here"
             to="/in"
@@ -28,6 +28,6 @@ const Register = () => {
       </div>
     </div>
   );
-};
+}
 
 export default Register;
