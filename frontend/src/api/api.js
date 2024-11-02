@@ -73,4 +73,9 @@ export const loginUser = async (loginData) => {
   }
 };
 
+// Function to logout user
+export const logoutUser = async () => {
+  return await api.post("/logout");
+};
+
 export default api;

@@ -8,6 +8,7 @@ import Layout from "./Layout/Layout.jsx";
 import LinkButton from "./LinkButton/LinkButton.jsx";
 import ListingCard from "./ListingCard/ListingCard.jsx";
 import Loading from "./Loading/Loading.jsx";
+import LogoutButton from "./LogoutButton/LogoutButton.jsx";
 import TextareaBox from "./TextareaBox/TextareaBox.jsx";
 
 export {
@@ -21,5 +22,6 @@ export {
   LinkButton,
   ListingCard,
   Loading,
+  LogoutButton,
   TextareaBox,
 };
