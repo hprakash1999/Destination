@@ -53,4 +53,24 @@ export const registerNewUser = async (registerData) => {
   }
 };
 
+// Function to login user
+export const loginUser = async (loginData) => {
+  try {
+    const response = await api.post("/user/login", loginData, {
+      withCredentials: true, // Ensure cookies are sent for authentication
+    });
+
+    console.log("Login successful:", response.data);
+
+    return {
+      user: response.data.data.user,
+      refreshToken: response.data.data.refreshToken,
+      accessToken: response.data.data.accessToken,
+    };
+  } catch (err) {
+    console.log("Login failed:", err);
+    throw err; // Throws error to be caught by the thunk
+  }
+};
+
 export default api;

@@ -79,7 +79,7 @@ function Explore() {
         </div>
 
         {/* Listings Cards */}
-        <div className="w-4/5 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+        <div className="w-4/5 h-2/5 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
           {listings && listings.length > 0 ? (
             listings.map(
               ({

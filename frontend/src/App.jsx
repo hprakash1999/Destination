@@ -7,7 +7,7 @@ import {
 
 // Import components
 import { Layout } from "./components/Components.js";
-import { ErrorPage, Explore, Home, Register } from "./pages/Pages.js";
+import { ErrorPage, Explore, Home, Login, Register } from "./pages/Pages.js";
 
 // Create router
 const router = createBrowserRouter(
@@ -17,6 +17,7 @@ const router = createBrowserRouter(
         <Route index element={<Home />} />
         <Route path="explore" element={<Explore />} />
         <Route path="register" element={<Register />} />
+        <Route path="in" element={<Login />} />
       </Route>
 
       <Route path="*" element={<ErrorPage />} />
