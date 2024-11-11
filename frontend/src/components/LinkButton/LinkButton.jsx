@@ -24,8 +24,13 @@ function LinkButton({
   ${secondary ? secondaryClasses : ""} 
   ${className}`;
 
+  // Scroll to the top of the page
+  const handleClick = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
   return (
-    <Link to={to} className={linkClasses} {...props}>
+    <Link to={to} className={linkClasses} onClick={handleClick} {...props}>
       {text}
     </Link>
   );

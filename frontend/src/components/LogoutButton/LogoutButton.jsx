@@ -1,7 +1,7 @@
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { logoutCurrentUser } from "../../features/features.js";
-import Button from "../Components.js";
+import { Button } from "../Components.js";
 
 function LogoutButton() {
   const dispatch = useDispatch();

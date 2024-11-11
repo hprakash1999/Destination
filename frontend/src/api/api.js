@@ -75,7 +75,7 @@ export const loginUser = async (loginData) => {
 
 // Function to logout user
 export const logoutUser = async () => {
-  return await api.post("/logout");
+  return await api.post("/user/logout");
 };
 
 export default api;
