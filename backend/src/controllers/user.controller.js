@@ -298,9 +298,27 @@ const updateAvatar = asyncHandler(async (req, res) => {
     .json(new ApiResponse(200, updatedUser, "Avatar updated successfully!"));
 });
 
+// Get user by ID
+const getUserById = asyncHandler(async (req, res) => {
+  const { userId } = req.params;
+
+  // Find the user by ID
+  const user = await User.findById(userId);
+
+  // If user not exits
+  if (!user) {
+    throw new ApiError(404, "User not found!");
+  }
+
+  return res
+    .status(200)
+    .json(new ApiResponse(200, user, "User data fetched successfully!"));
+});
+
 export {
   changeCurrentPassword,
   getCurrentUser,
+  getUserById,
   loginUser,
   logoutUser,
   refreshAccessToken,

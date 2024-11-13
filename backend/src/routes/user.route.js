@@ -6,6 +6,7 @@ import { upload } from "../middlewares/multer.middleware.js";
 import {
   changeCurrentPassword,
   getCurrentUser,
+  getUserById,
   loginUser,
   logoutUser,
   refreshAccessToken,
@@ -33,6 +34,9 @@ router.route("/change-password").post(verifyJwt, changeCurrentPassword);
 
 // Get current user route
 router.route("/current-user").get(verifyJwt, getCurrentUser);
+
+// Get user by ID
+router.route("/:userId").get(getUserById);
 
 // Update account details route
 router.route("/update-account").patch(verifyJwt, updateAccountDetails);
