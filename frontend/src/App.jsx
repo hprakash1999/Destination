@@ -7,7 +7,14 @@ import {
 
 // Import components
 import { Layout } from "./components/Components.js";
-import { ErrorPage, Explore, Home, Login, Register } from "./pages/Pages.js";
+import {
+  ErrorPage,
+  Explore,
+  Home,
+  ListingDetails,
+  Login,
+  Register,
+} from "./pages/Pages.js";
 
 // Create router
 const router = createBrowserRouter(
@@ -16,6 +23,7 @@ const router = createBrowserRouter(
       <Route path="/" element={<Layout />}>
         <Route index element={<Home />} />
         <Route path="explore" element={<Explore />} />
+        <Route path="explore/:listingId" element={<ListingDetails />} />
         <Route path="register" element={<Register />} />
         <Route path="in" element={<Login />} />
       </Route>

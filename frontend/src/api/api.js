@@ -28,6 +28,20 @@ export const fetchListings = async (params = {}) => {
   }
 };
 
+// Function to fetch listing by ID
+export const fetchListingById = async (listingId) => {
+  try {
+    const response = await api.get(`/listings/${listingId}`);
+
+    console.log("Listing details fetched:", response.data);
+
+    return response.data.data;
+  } catch (err) {
+    console.error("Failed to fetch listing details:", err);
+    throw err;
+  }
+};
+
 // Function to register new user
 export const registerNewUser = async (registerData) => {
   try {
@@ -76,6 +90,20 @@ export const loginUser = async (loginData) => {
 // Function to logout user
 export const logoutUser = async () => {
   return await api.post("/user/logout");
+};
+
+// Function to get user by ID
+export const getUserById = async (userId) => {
+  try {
+    const response = await api.get(`/user/${userId}`);
+
+    console.log("User details fetched:", response.data);
+
+    return response.data.data;
+  } catch (err) {
+    console.error("Failed to fetch user details:", err);
+    throw err;
+  }
 };
 
 export default api;

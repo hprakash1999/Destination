@@ -99,7 +99,7 @@ function Explore() {
                   imageURL={listingImage}
                   availability={availability}
                   price={pricePerNight}
-                  detailsLink={`/listings/${_id}`}
+                  detailsLink={`/explore/${_id}`}
                   className="transition-transform transform hover:scale-105"
                 />
               )
