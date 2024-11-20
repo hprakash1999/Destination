@@ -5,6 +5,7 @@ import { Loading } from "../../components/Components.js";
 import Description from "./Description/Description.jsx";
 import Hero from "./Hero/Hero.jsx";
 import Host from "./Host/Host.jsx";
+import ListingActions from "./ListingActions/ListingActions.jsx";
 
 function ListingDetails() {
   const { listingId } = useParams();
@@ -61,6 +62,7 @@ function ListingDetails() {
     <section className="container mx-auto py-10 px-6 space-y-8">
       <Hero listing={listing} />
       <Description listing={listing} />
+      <ListingActions listing={listing} />
       <Host hostId={listing.host._id} />
     </section>
   );

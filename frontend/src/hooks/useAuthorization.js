@@ -12,30 +12,12 @@ const useAuthorization = () => {
   // Check if the user is owner
   const isOwner = (resourceOwnerId) => {
     if (!user) return false;
-    return user.id === resourceOwnerId;
-  };
-
-  // Check if the user has permission for a specific action
-  const isAuthorized = (resourceOwnerId, action) => {
-    if (!user) return false;
-
-    switch (action) {
-      case "update":
-      case "delete":
-        return isOwner(resourceOwnerId);
-      case "create":
-        return hasRole("host");
-      case "view":
-        return true;
-      default:
-        return false;
-    }
+    return user._id === resourceOwnerId;
   };
 
   return {
     hasRole,
     isOwner,
-    isAuthorized,
   };
 };
 
