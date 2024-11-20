@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { registerNewUser } from "../../api/api.js";
+import { registerNewUser } from "../../api/user.js";
 import { Button, InputBox, TextareaBox } from "../../components/Components.js";
 import useFormValidation from "../../hooks/useFormValidation";
 

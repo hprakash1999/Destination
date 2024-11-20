@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { fetchListings } from "../../../api/api";
+import { fetchListings } from "../../../api/listings.js";
 import {
   LinkButton,
   ListingCard,

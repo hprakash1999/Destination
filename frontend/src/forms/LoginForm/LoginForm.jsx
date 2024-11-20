@@ -1,11 +1,14 @@
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import { Button, InputBox } from "../../components/Components";
 import { loginExistedUser } from "../../features/features.js";
 import useFormValidation from "../../hooks/useFormValidation.js";
 
 const LoginForm = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+
   const [formData, setFormData] = useState({
     email: "",
     password: "",
@@ -33,9 +36,18 @@ const LoginForm = () => {
   };
 
   // Form submission handler
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    dispatch(loginExistedUser(formData));
+
+    try {
+      const response = await dispatch(loginExistedUser(formData));
+
+      if (response.payload && response.payload.accessToken) {
+        navigate("/explore");
+      }
+    } catch (err) {
+      console.error(err.message || "Login failed");
+    }
   };
 
   return (
@@ -43,8 +55,8 @@ const LoginForm = () => {
       onSubmit={handleSubmit}
       className="w-full max-w-md space-y-6 bg-zinc-800 p-8 rounded-lg shadow-lg"
     >
-      {error && <p className="text-red-500">{error}</p>}
-
+      {error && <p className="text-red-500">{error}</p>}{" "}
+      {/* Show error if exists */}
       <InputBox
         label="Email"
         type="email"
@@ -58,7 +70,6 @@ const LoginForm = () => {
       {errors.email && touched.email && (
         <p className="text-red-500">{errors.email}</p>
       )}
-
       <InputBox
         label="Password"
         type="password"
@@ -72,7 +83,6 @@ const LoginForm = () => {
       {errors.password && touched.password && (
         <p className="text-red-500">{errors.password}</p>
       )}
-
       <Button
         text={isLoading ? "Logging in..." : "Login"}
         primary

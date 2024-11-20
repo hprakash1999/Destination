@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { fetchListingById } from "../../api/api.js";
+import { fetchListingById } from "../../api/listings.js";
 import { Loading } from "../../components/Components.js";
 import Description from "./Description/Description.jsx";
 import Hero from "./Hero/Hero.jsx";

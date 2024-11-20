@@ -1,5 +1,5 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { fetchListings } from "../../api/api.js";
+import { fetchListings } from "../../api/listings.js";
 
 // Async action to fetch listings
 export const getAllListings = createAsyncThunk(
