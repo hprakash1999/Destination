@@ -1,5 +1,9 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { loginUser, logoutUser } from "../../api/auth.js";
+import {
+  loginUser,
+  logoutUser,
+  refreshAccessToken as refreshAccessTokenAPI,
+} from "../../api/auth.js";
 import { logout } from "./authSlice.js";
 
 // Async action to login user
@@ -28,6 +32,21 @@ export const logoutCurrentUser = createAsyncThunk(
     } catch (error) {
       console.error("Failed to log out:", error);
       throw new Error(error.response?.data?.message || "Logout failed");
+    }
+  }
+);
+
+// Async action to refresh access token
+export const refreshAccessToken = createAsyncThunk(
+  "auth/refreshAccessToken",
+  async (_, { rejectWithValue }) => {
+    try {
+      const newAccessToken = await refreshAccessTokenAPI();
+      return { accessToken: newAccessToken };
+    } catch (err) {
+      return rejectWithValue(
+        err.response?.data?.message || "Session expired. Please log in again."
+      );
     }
   }
 );
