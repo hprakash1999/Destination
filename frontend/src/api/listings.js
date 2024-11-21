@@ -33,3 +33,29 @@ export const fetchListingById = async (listingId) => {
     throw err;
   }
 };
+
+// Function to create a new listing
+export const createListing = async (newListingData) => {
+  try {
+    // Create a form data to send listings data
+    const formData = new FormData();
+
+    // Append fields to FormData
+    Object.keys(newListingData).forEach((key) => {
+      formData.append(key, newListingData[key]);
+    });
+
+    const response = await api.post("/listings", formData, {
+      headers: {
+        "Content-Type": "multipart/form-data",
+      },
+    });
+
+    console.log("Listing created:", response.data);
+
+    return response.data.data;
+  } catch (err) {
+    console.log("Failed to create listing:", err);
+    throw err;
+  }
+};

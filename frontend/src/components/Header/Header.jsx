@@ -72,7 +72,7 @@ function Header() {
                   <div className="space-y-2">
                     {isHost && (
                       <Link
-                        to="/profile"
+                        to="/listing/new"
                         className="block text-gray-300 hover:text-rose-500 hover:bg-zinc-700 p-2 rounded-lg transition duration-150"
                       >
                         Add New Listing
