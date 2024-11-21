@@ -8,6 +8,7 @@ import {
 // Import components
 import { Layout } from "./components/Components.js";
 import {
+  AddNewListing,
   ErrorPage,
   Explore,
   Home,
@@ -26,6 +27,7 @@ const router = createBrowserRouter(
         <Route path="explore/:listingId" element={<ListingDetails />} />
         <Route path="register" element={<Register />} />
         <Route path="in" element={<Login />} />
+        <Route path="listing/new" element={<AddNewListing />} />
       </Route>
 
       <Route path="*" element={<ErrorPage />} />
