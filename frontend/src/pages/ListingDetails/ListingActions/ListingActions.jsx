@@ -22,13 +22,13 @@ function ListingActions({ listing }) {
             text="Edit"
             to={`/explore/${listing._id}/edit`}
             primary
-            className="px-20 mx-4"
+            className="px-24 mx-4"
           />
           <Button
             text="Delete"
             secondary
             onClick={handleDelete}
-            className="px-20 mx-4"
+            className="px-24 mx-4"
           />
         </>
       )}
