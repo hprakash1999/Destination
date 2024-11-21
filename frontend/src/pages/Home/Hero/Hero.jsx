@@ -1,6 +1,9 @@
+import { useSelector } from "react-redux";
 import { Carousel, LinkButton } from "../../../components/Components";
 
 const Hero = () => {
+  const { user } = useSelector((state) => state.auth);
+
   return (
     <div className="relative h-96 overflow-hidden">
       {/* Carousel banner section */}
@@ -21,7 +24,9 @@ const Hero = () => {
         <div className="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4">
           <LinkButton text="Explore Now" primary to="/explore" />
 
-          <LinkButton text="Join Us Today" to="/register" secondary />
+          {!user && (
+            <LinkButton text="Join Us Today" to="/register" secondary />
+          )}
         </div>
       </div>
     </div>

@@ -29,9 +29,11 @@ export const logoutCurrentUser = createAsyncThunk(
       await logoutUser();
 
       dispatch(logout());
-    } catch (error) {
-      console.error("Failed to log out:", error);
-      throw new Error(error.response?.data?.message || "Logout failed");
+    } catch (err) {
+      console.error("Failed to log out:", err);
+      throw new Error(err.response?.data?.message || "Logout failed");
+    } finally {
+      dispatch(logout());
     }
   }
 );
