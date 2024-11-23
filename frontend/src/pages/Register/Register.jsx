@@ -22,7 +22,7 @@ function Register() {
           <LinkButton
             text="Login here"
             to="/in"
-            className="text-rose-500 font-semibold ml-1 hover:underline"
+            className="text-rose-500 font-semibold hover:underline px-0 ml-1"
           />
         </p>
       </div>

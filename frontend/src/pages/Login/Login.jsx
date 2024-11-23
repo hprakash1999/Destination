@@ -20,7 +20,7 @@ function Login() {
           <LinkButton
             text="Join us today"
             to="/register"
-            className="text-rose-500 font-semibold ml-1 hover:underline"
+            className="text-rose-500 font-semibold px-0 hover:underline ml-1"
           />
         </p>
       </div>

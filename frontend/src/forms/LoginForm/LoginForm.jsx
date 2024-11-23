@@ -43,7 +43,7 @@ const LoginForm = () => {
       const response = await dispatch(loginExistedUser(formData));
 
       if (response.payload && response.payload.accessToken) {
-        navigate("/explore");
+        navigate("/in/:username");
       }
     } catch (err) {
       console.error(err.message || "Login failed");
