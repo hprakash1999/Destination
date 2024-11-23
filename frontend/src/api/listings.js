@@ -59,3 +59,14 @@ export const createListing = async (newListingData) => {
     throw err;
   }
 };
+
+// Function to delete listing
+export const deleteListing = async (listingId) => {
+  try {
+    const response = await api.delete(`/listings/${listingId}`);
+    return response.data.data;
+  } catch (err) {
+    console.error("Error deleting listing:", err);
+    throw err;
+  }
+};
