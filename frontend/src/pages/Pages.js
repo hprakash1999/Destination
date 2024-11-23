@@ -1,4 +1,5 @@
 import AddNewListing from "./AddNewListing/AddNewListing.jsx";
+import EditListing from "./EditListing/EditListing.jsx";
 import ErrorPage from "./ErrorPage/ErrorPage.jsx";
 import Explore from "./Explore/Explore.jsx";
 import Home from "./Home/Home.jsx";
@@ -8,6 +9,7 @@ import Register from "./Register/Register.jsx";
 
 export {
   AddNewListing,
+  EditListing,
   ErrorPage,
   Explore,
   Home,

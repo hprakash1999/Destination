@@ -9,6 +9,7 @@ import {
 import { Layout } from "./components/Components.js";
 import {
   AddNewListing,
+  EditListing,
   ErrorPage,
   Explore,
   Home,
@@ -28,6 +29,7 @@ const router = createBrowserRouter(
         <Route path="register" element={<Register />} />
         <Route path="in" element={<Login />} />
         <Route path="listing/new" element={<AddNewListing />} />
+        <Route path="explore/:listingId/edit" element={<EditListing />} />
       </Route>
 
       <Route path="*" element={<ErrorPage />} />

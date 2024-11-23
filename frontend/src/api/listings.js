@@ -70,3 +70,17 @@ export const deleteListing = async (listingId) => {
     throw err;
   }
 };
+
+// Function to edit listing
+export const editListing = async (listingId, updatedListingData) => {
+  try {
+    const response = await api.patch(
+      `/listings/${listingId}`,
+      updatedListingData
+    );
+    return response.data.data;
+  } catch (err) {
+    console.error("Error editing listing:", err);
+    throw err;
+  }
+};
