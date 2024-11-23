@@ -79,7 +79,7 @@ function Header() {
                       </Link>
                     )}
                     <Link
-                      to="/profile"
+                      to={`/in/${user.username}`}
                       className="block text-gray-300 hover:text-rose-500 hover:bg-zinc-700 p-2 rounded-lg transition duration-150"
                     >
                       Visit Profile

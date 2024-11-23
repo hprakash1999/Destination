@@ -16,6 +16,7 @@ import {
   ListingDetails,
   Login,
   Register,
+  UserProfile,
 } from "./pages/Pages.js";
 
 // Create router
@@ -30,6 +31,7 @@ const router = createBrowserRouter(
         <Route path="in" element={<Login />} />
         <Route path="listing/new" element={<AddNewListing />} />
         <Route path="explore/:listingId/edit" element={<EditListing />} />
+        <Route path="in/:username" element={<UserProfile />} />
       </Route>
 
       <Route path="*" element={<ErrorPage />} />
