@@ -158,7 +158,7 @@ const getListingById = asyncHandler(async (req, res) => {
       select: "rating comment",
       populate: {
         path: "isAuthor",
-        select: "fullname email",
+        select: "fullname username email avatar",
       },
     });
 

@@ -6,6 +6,7 @@ import Description from "./Description/Description.jsx";
 import Hero from "./Hero/Hero.jsx";
 import Host from "./Host/Host.jsx";
 import ListingActions from "./ListingActions/ListingActions.jsx";
+import Reviews from "./Reviews/Reviews.jsx";
 
 function ListingDetails() {
   const { listingId } = useParams();
@@ -64,6 +65,7 @@ function ListingDetails() {
       <Description listing={listing} />
       <ListingActions listing={listing} />
       <Host hostId={listing.host._id} />
+      <Reviews reviews={listing.reviews} />
     </section>
   );
 }
