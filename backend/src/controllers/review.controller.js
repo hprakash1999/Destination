@@ -71,19 +71,37 @@ const createReview = asyncHandler(async (req, res) => {
     listing: listingId,
   });
 
+  // Update the listing's reviews array
+  await Listing.findByIdAndUpdate(
+    listingId,
+    { $push: { reviews: review._id } },
+    { new: true }
+  );
+
   // Populate the review after creation
   const populatedReview = await Review.findById(review._id)
     .populate("isAuthor", "fullname email") // Populate author fields
-    .populate("listing", "title"); // Populate listing fields (if needed)
+    .populate("listing", "title"); // Populate listing fields
+
+  // Fetch the listing with reviews populated
+  const populatedListing = await Listing.findById(listingId)
+    .populate("host", "fullname email bio username")
+    .populate({
+      path: "reviews", // Populate reviews
+      populate: {
+        path: "isAuthor",
+        select: "fullname email",
+      },
+    });
 
   return res
     .status(201)
-    .json(new ApiResponse(201, populatedReview, "Review added successfully!"));
+    .json(new ApiResponse(201, populatedListing, "Review added successfully!"));
 });
 
 // Update review
 const updateReviewById = asyncHandler(async (req, res) => {
-  const { reviewId } = req.params; // No need for listingId if not used in the query
+  const { reviewId } = req.params;
   const { rating, comment } = req.body;
 
   // Validate input
@@ -121,7 +139,7 @@ const updateReviewById = asyncHandler(async (req, res) => {
 
 // Delete review
 const deleteReviewById = asyncHandler(async (req, res) => {
-  const { reviewId } = req.params; // No need for listingId if not used in the query
+  const { reviewId } = req.params;
 
   // Find the review and check if the user is the author
   const review = await Review.findOne({

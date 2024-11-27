@@ -151,10 +151,16 @@ const getListingById = asyncHandler(async (req, res) => {
   const { listingId } = req.params;
 
   // Find the listing by ID
-  const listing = await Listing.findById(listingId).populate(
-    "host",
-    "fullname email"
-  );
+  const listing = await Listing.findById(listingId)
+    .populate("host", "fullname email bio username") // Populate host fields
+    .populate({
+      path: "reviews", // Populate reviews
+      select: "rating comment",
+      populate: {
+        path: "isAuthor",
+        select: "fullname email",
+      },
+    });
 
   // Check if listing exists
   if (!listing) {
