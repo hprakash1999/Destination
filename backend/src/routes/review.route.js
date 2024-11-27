@@ -14,13 +14,13 @@ const router = Router();
 
 // Home routes
 router
-  .route("/:listingId")
+  .route("/:listingId/reviews")
   .get(getListingReviews)
   .post(verifyJwt, createReview);
 
 // CRUD routes
 router
-  .route("/:reviewId")
+  .route("/reviews/:reviewId")
   .get(getReviewById)
   .patch(verifyJwt, updateReviewById)
   .delete(verifyJwt, deleteReviewById);
