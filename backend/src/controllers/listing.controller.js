@@ -265,7 +265,7 @@ const deleteListing = asyncHandler(async (req, res) => {
   // Find and delete the listing
   const deletedListing = await Listing.findOneAndDelete({
     _id: listingId,
-    host: req.user._id,
+    // host: req.user._id,
   });
 
   // Check if the listing was found and deleted
