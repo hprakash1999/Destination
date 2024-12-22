@@ -1,14 +1,6 @@
 import PropTypes from "prop-types";
-import useGetUser from "../../../hooks/useGetUser.js";
 
-function Host({ hostId }) {
-  // Get host data using custom hook
-  const { user: host, status, error } = useGetUser(hostId);
-
-  // Conditional rendering based on status
-  if (status === "loading") return <div>Loading...</div>;
-  if (status === "failed") return <div>Error: {error}</div>;
-
+function Host({ host }) {
   return (
     <div className="bg-zinc-800 p-6 rounded-lg shadow-xl flex items-center space-x-6 mt-6">
       {/* User avatar */}
@@ -46,7 +38,12 @@ function Host({ hostId }) {
 
 export default Host;
 
-// Define proptypes for validations
+// Define proptypes for validation
 Host.propTypes = {
-  hostId: PropTypes.string.isRequired,
+  host: PropTypes.shape({
+    avatar: PropTypes.string,
+    fullname: PropTypes.string,
+    email: PropTypes.string,
+    bio: PropTypes.string,
+  }).isRequired,
 };

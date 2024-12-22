@@ -152,7 +152,7 @@ const getListingById = asyncHandler(async (req, res) => {
 
   // Find the listing by ID
   const listing = await Listing.findById(listingId)
-    .populate("host", "fullname email bio username") // Populate host fields
+    .populate("host", "fullname email bio username avatar") // Populate host fields
     .populate({
       path: "reviews", // Populate reviews
       select: "rating comment",

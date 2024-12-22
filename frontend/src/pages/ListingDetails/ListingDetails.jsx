@@ -64,7 +64,7 @@ function ListingDetails() {
       <Hero listing={listing} />
       <Description listing={listing} />
       <ListingActions listing={listing} />
-      <Host hostId={listing.host._id} />
+      <Host host={listing.host} />
       <Reviews reviews={listing.reviews} />
     </section>
   );
